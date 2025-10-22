@@ -13,8 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Servecta GmbH - Datenschutz & IT-Dienstleistungen aus einer Hand",
-    template: "%s | Servecta GmbH"
+    default: "Servecta UG (haftungsbeschränkt) i.G. - Datenschutz & IT-Dienstleistungen aus einer Hand",
+    template: "%s | Servecta UG (haftungsbeschränkt) i.G."
   },
   description: "Professionelle Datenschutz- und IT-Dienstleistungen für mittelständische Unternehmen und Start-ups. DSGVO-konform, sicher und maßgeschneidert.",
   keywords: [
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     "Datenschutzberatung",
     "IT-Dienstleistungen"
   ],
-  authors: [{ name: "Servecta GmbH" }],
-  creator: "Servecta GmbH",
-  publisher: "Servecta GmbH",
+  authors: [{ name: "Servecta UG (haftungsbeschränkt) i.G." }],
+  creator: "Servecta UG (haftungsbeschränkt) i.G.",
+  publisher: "Servecta UG (haftungsbeschränkt) i.G.",
   formatDetection: {
     email: false,
     address: false,
@@ -67,21 +67,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://servecta.de",
-    siteName: "Servecta GmbH",
-    title: "Servecta GmbH - Datenschutz & IT-Dienstleistungen aus einer Hand",
+    siteName: "Servecta UG (haftungsbeschränkt) i.G.",
+    title: "Servecta UG (haftungsbeschränkt) i.G. - Datenschutz & IT-Dienstleistungen aus einer Hand",
     description: "Professionelle Datenschutz- und IT-Dienstleistungen für mittelständische Unternehmen und Start-ups. DSGVO-konform, sicher und maßgeschneidert.",
     images: [
       {
         url: "/assets/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Servecta GmbH - Datenschutz & IT-Dienstleistungen",
+        alt: "Servecta UG (haftungsbeschränkt) i.G. - Datenschutz & IT-Dienstleistungen",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Servecta GmbH - Datenschutz & IT-Dienstleistungen aus einer Hand",
+    title: "Servecta UG (haftungsbeschränkt) i.G. - Datenschutz & IT-Dienstleistungen aus einer Hand",
     description: "Professionelle Datenschutz- und IT-Dienstleistungen für mittelständische Unternehmen und Start-ups.",
     images: ["/assets/twitter-image.jpg"],
   },

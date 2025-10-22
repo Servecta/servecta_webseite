@@ -10,31 +10,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
-    ],
-    "/leistungen/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/leistungen/page.js"
-    ],
-    "/ueber-uns/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/ueber-uns/page.js"
-    ],
-    "/kontakt/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/kontakt/page.js"
-    ],
-    "/datenschutz/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/datenschutz/page.js"
-    ],
-    "/impressum/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/impressum/page.js"
     ]
   }
 }

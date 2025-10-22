@@ -1,8 +1,8 @@
 import { FileText, Mail, Phone, MapPin, Globe, Building } from 'lucide-react';
 
 export const metadata = {
-  title: 'Impressum - Servecta GmbH',
-  description: 'Impressum der Servecta GmbH mit Kontaktdaten und rechtlichen Informationen',
+  title: 'Impressum - Servecta UG (haftungsbeschränkt) i.G.',
+  description: 'Impressum der Servecta UG (haftungsbeschränkt) i.G. mit Kontaktdaten und rechtlichen Informationen',
 };
 
 export default function ImpressumPage() {
@@ -18,7 +18,7 @@ export default function ImpressumPage() {
             Impressum
           </h1>
           <p className="text-xl text-muted-foreground">
-            Servecta GmbH - Angaben gemäß § 5 TMG
+            Servecta UG (haftungsbeschränkt) i.G. - Angaben gemäß § 5 TMG
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function ImpressumPage() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Building className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">Servecta GmbH</span>
+                  <span className="font-semibold text-foreground">Servecta UG (haftungsbeschränkt) i.G.</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-primary" />

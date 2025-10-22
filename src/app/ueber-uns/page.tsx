@@ -42,7 +42,7 @@ const values = [
 
 const team = [
   {
-    name: 'Dr. Max Mustermann',
+    name: 'Luca Stephan Kohls',
     role: 'Geschäftsführer & Datenschutzexperte',
     description: 'Über 15 Jahre Erfahrung in der IT-Branche mit Spezialisierung auf Datenschutz und Compliance.',
     expertise: ['DSGVO', 'IT-Security', 'Strategische Beratung'],
@@ -65,7 +65,7 @@ const milestones = [
   {
     year: '2010',
     title: 'Gründung',
-    description: 'Servecta GmbH wird als Spezialist für IT-Security gegründet.',
+    description: 'Servecta UG (haftungsbeschränkt) i.G. wird als Spezialist für IT-Security gegründet.',
   },
   {
     year: '2015',

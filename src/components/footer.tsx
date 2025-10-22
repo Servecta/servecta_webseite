@@ -12,7 +12,7 @@ export function Footer() {
               <Shield className="h-8 w-8 text-primary" />
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground font-medium">Alles aus einem Guss</span>
-                <span className="text-lg font-bold text-foreground">Servecta UG (haftungsbeschränkt)</span>
+                <span className="text-lg font-bold text-foreground">Servecta UG (haftungsbeschränkt) i.G.</span>
               </div>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">

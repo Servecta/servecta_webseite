@@ -1,8 +1,8 @@
 import { Shield, FileText, Mail, Phone, MapPin } from 'lucide-react';
 
 export const metadata = {
-  title: 'Datenschutzerklärung - Servecta GmbH',
-  description: 'Datenschutzerklärung der Servecta GmbH gemäß DSGVO',
+  title: 'Datenschutzerklärung - Servecta UG (haftungsbeschränkt) i.G.',
+  description: 'Datenschutzerklärung der Servecta UG (haftungsbeschränkt) i.G. gemäß DSGVO',
 };
 
 export default function DatenschutzPage() {
@@ -18,7 +18,7 @@ export default function DatenschutzPage() {
             Datenschutzerklärung
           </h1>
           <p className="text-xl text-muted-foreground">
-            Servecta GmbH - Stand: {new Date().toLocaleDateString('de-DE')}
+            Servecta UG (haftungsbeschränkt) i.G. - Stand: {new Date().toLocaleDateString('de-DE')}
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default function DatenschutzPage() {
             <div className="bg-card p-6 rounded-lg border border-border">
               <div className="flex items-center space-x-3 mb-4">
                 <FileText className="h-6 w-6 text-primary" />
-                <h3 className="text-lg font-semibold text-foreground">Servecta GmbH</h3>
+                <h3 className="text-lg font-semibold text-foreground">Servecta UG (haftungsbeschränkt) i.G.</h3>
               </div>
               <div className="space-y-2 text-muted-foreground">
                 <div className="flex items-center space-x-2">
@@ -53,7 +53,7 @@ export default function DatenschutzPage() {
             <p className="text-muted-foreground mb-4">
               Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Diese Datenschutzerklärung 
               informiert Sie über Art, Umfang und Zweck der Verarbeitung von personenbezogenen Daten durch 
-              die Servecta GmbH.
+              die Servecta UG (haftungsbeschränkt) i.G..
             </p>
             <p className="text-muted-foreground">
               Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
