@@ -10,11 +10,7 @@ import {
   ArrowRight, 
   CheckCircle, 
   Heart, 
-  Lightbulb, 
-  Handshake,
-  Clock,
-  Globe,
-  TrendingUp
+  Clock
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';

@@ -93,7 +93,7 @@ async function sendWithSendGrid(to: string, subject: string, html: string, from:
 async function sendWithSMTP(to: string, subject: string, html: string, from: string) {
   const nodemailer = await import('nodemailer');
   
-  const transporter = nodemailer.createTransporter(emailConfig.smtp);
+  const transporter = nodemailer.createTransport(emailConfig.smtp);
   
   return await transporter.sendMail({
     from,

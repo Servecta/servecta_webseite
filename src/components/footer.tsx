@@ -63,6 +63,17 @@ export function Footer() {
                   Beratung
                 </Link>
               </li>
+              <li>
+                <a 
+                  href="https://portal.servecta.de" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors flex items-center space-x-1"
+                >
+                  <span>Kundenportal</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
             </ul>
           </div>
 

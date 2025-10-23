@@ -28,13 +28,15 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, direction = 'up',
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      const currentRef = ref.current;
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -52,7 +54,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, direction = 'up',
       transition: {
         duration: 0.8,
         delay: delay,
-        ease: [0.4, 0, 0.2, 1],
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   };

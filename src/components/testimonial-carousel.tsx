@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
+import { CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -76,7 +76,7 @@ export default function TestimonialCarousel() {
               ))}
             </div>
             <p className="text-xl italic text-foreground mb-6">
-              "{currentTestimonial.quote}"
+              &quot;{currentTestimonial.quote}&quot;
             </p>
             <p className="font-semibold text-primary">
               {currentTestimonial.author}

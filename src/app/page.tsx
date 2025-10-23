@@ -8,16 +8,10 @@ import {
   Server, 
   Users, 
   ArrowRight, 
-  CheckCircle,
-  Sparkles,
-  Zap,
-  Target,
-  TrendingUp,
-  Award,
-  Star
+  CheckCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import InteractiveBackground from '@/components/interactive-background';
 import ScrollReveal from '@/components/scroll-reveal';
 import ServiceCalculator from '@/components/service-calculator';

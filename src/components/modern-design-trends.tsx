@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,8 +13,7 @@ import {
   Eye,
   MousePointer,
   Smartphone,
-  Monitor,
-  Tablet
+  Monitor
 } from 'lucide-react';
 
 interface DesignTrend {

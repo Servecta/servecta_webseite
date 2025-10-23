@@ -52,7 +52,7 @@ export default function SmartContactForm() {
   }, [formData.subject]);
 
   const validate = () => {
-    let newErrors: Partial<FormData> = {};
+    const newErrors: Partial<FormData> = {};
     if (!formData.name) newErrors.name = 'Name ist erforderlich.';
     if (!formData.email) {
       newErrors.email = 'E-Mail ist erforderlich.';

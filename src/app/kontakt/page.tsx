@@ -10,7 +10,6 @@ import {
   MessageSquare,
   Calendar
 } from 'lucide-react';
-import ScrollReveal from '@/components/scroll-reveal';
 import SmartContactForm from '@/components/smart-contact-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
