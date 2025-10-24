@@ -93,7 +93,31 @@ async function sendWithSendGrid(to: string, subject: string, html: string, from:
 async function sendWithSMTP(to: string, subject: string, html: string, from: string) {
   const nodemailer = await import('nodemailer');
   
-  const transporter = nodemailer.createTransport(emailConfig.smtp);
+  // Überprüfe ob SMTP-Credentials vorhanden sind
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    throw new Error('SMTP-Credentials nicht konfiguriert. Bitte setzen Sie SMTP_USER und SMTP_PASS.');
+  }
+  
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: false, // true für 465, false für andere Ports
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false // Für selbstsignierte Zertifikate
+    }
+  });
+  
+  // Teste die Verbindung
+  try {
+    await transporter.verify();
+  } catch (error) {
+    console.error('SMTP-Verbindung fehlgeschlagen:', error);
+    throw new Error('SMTP-Server-Verbindung fehlgeschlagen. Bitte überprüfen Sie Ihre SMTP-Konfiguration.');
+  }
   
   return await transporter.sendMail({
     from,
@@ -153,7 +177,7 @@ export async function POST(request: NextRequest) {
     const confirmationMailOptions = {
       from: process.env.SMTP_FROM || 'noreply@servecta.de',
       to: email,
-      subject: 'Bestätigung Ihrer Anfrage - Servecta GmbH',
+      subject: 'Bestätigung Ihrer Anfrage - Servecta UG (haftungsbeschränkt) i.G.',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="text-align: center; margin-bottom: 30px;">
@@ -183,7 +207,7 @@ export async function POST(request: NextRequest) {
           <p>Bei dringenden Anfragen erreichen Sie uns auch telefonisch unter <strong>+49 (0) 123 456789</strong>.</p>
           
           <div style="background: #0070F3; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
-            <h3 style="margin-top: 0;">Ihr Team von Servecta GmbH</h3>
+            <h3 style="margin-top: 0;">Ihr Team von Servecta UG (haftungsbeschränkt) i.G.</h3>
             <p style="margin-bottom: 0;">
               Datenschutz- und IT-Dienstleistungen aus einer Hand
             </p>
@@ -202,7 +226,7 @@ export async function POST(request: NextRequest) {
 
     await Promise.all([
       sendEmail(contactEmail, `Neue Kontaktanfrage: ${subject}`, mailOptions.html, fromEmail),
-      sendEmail(email, 'Bestätigung Ihrer Anfrage - Servecta GmbH', confirmationMailOptions.html, fromEmail),
+      sendEmail(email, 'Bestätigung Ihrer Anfrage - Servecta UG (haftungsbeschränkt) i.G.', confirmationMailOptions.html, fromEmail),
     ]);
 
     // Log für Analytics (optional)
@@ -219,9 +243,23 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Fehler beim Senden der E-Mail:', error);
     
+    // Detaillierte Fehlermeldung für Debugging
+    let errorMessage = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.';
+    
+    if (error instanceof Error) {
+      if (error.message.includes('SMTP-Credentials nicht konfiguriert')) {
+        errorMessage = 'E-Mail-Service nicht konfiguriert. Bitte kontaktieren Sie den Administrator.';
+      } else if (error.message.includes('SMTP-Server-Verbindung fehlgeschlagen')) {
+        errorMessage = 'E-Mail-Server-Verbindung fehlgeschlagen. Bitte versuchen Sie es später erneut.';
+      } else if (error.message.includes('EAUTH')) {
+        errorMessage = 'E-Mail-Authentifizierung fehlgeschlagen. Bitte kontaktieren Sie den Administrator.';
+      }
+    }
+    
     return NextResponse.json(
       { 
-        error: 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.' 
+        error: errorMessage,
+        debug: process.env.NODE_ENV === 'development' ? error?.message : undefined
       },
       { status: 500 }
     );

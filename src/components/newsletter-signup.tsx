@@ -23,16 +23,30 @@ export default function NewsletterSignup() {
       return;
     }
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-    if (Math.random() > 0.1) { // Simulate 90% success rate
-      setIsSubmitted(true);
-      setEmail('');
-    } else {
-      setError('Es gab ein Problem bei der Anmeldung. Bitte versuchen Sie es später erneut.');
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setEmail('');
+        setError('');
+      } else {
+        setError(result.error || 'Es gab ein Problem bei der Anmeldung. Bitte versuchen Sie es später erneut.');
+      }
+    } catch (error) {
+      console.error('Fehler beim Newsletter-Abonnement:', error);
+      setError('Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung.');
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
 
   return (

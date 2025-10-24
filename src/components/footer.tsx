@@ -29,12 +29,12 @@ export function Footer() {
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
                 <a href="tel:+49123456789" className="hover:text-primary transition-colors">
-                  +49 123 456 789
+                  +49 (174) 7861457
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>Musterstraße 123, 12345 Musterstadt</span>
+                <span>Lengerckestieg 2, 22041 Hamburg</span>
               </div>
             </div>
           </div>

@@ -24,21 +24,21 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Telefon',
-    value: '+49 (0) 123 456789',
+    value: '+49 (174) 7861457',
     description: 'Rufen Sie uns direkt an',
-    href: 'tel:+49123456789'
+    href: 'tel:+491747861457'
   },
   {
     icon: MapPin,
     title: 'Adresse',
-    value: 'Musterstraße 123, 12345 Musterstadt',
+    value: 'Lengerckestieg 2, 22041 Hamburg',
     description: 'Besuchen Sie uns vor Ort',
     href: '#'
   },
   {
     icon: Clock,
     title: 'Öffnungszeiten',
-    value: 'Mo-Fr: 9:00-18:00',
+    value: 'Mo-Fr: 09:00-18:00',
     description: 'Unsere Geschäftszeiten',
     href: '#'
   }
@@ -215,7 +215,7 @@ export default function ContactPage() {
               Unser Standort
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Besuchen Sie uns in unserem modernen Büro in Musterstadt
+              Besuchen Sie uns in unserem modernen Büro in Hamburg
             </p>
           </motion.div>
 
@@ -234,7 +234,7 @@ export default function ContactPage() {
                     Karte wird geladen...
                   </h3>
                   <p className="text-muted-foreground">
-                    Musterstraße 123, 12345 Musterstadt
+                    Lengerckestieg 2, 22041 Hamburg
                   </p>
                 </div>
               </div>

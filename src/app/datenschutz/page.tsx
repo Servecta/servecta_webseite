@@ -34,11 +34,11 @@ export default function DatenschutzPage() {
               <div className="space-y-2 text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
-                  <span>Musterstraße 123, 12345 Musterstadt</span>
+                  <span>Lengerckestieg 2, 22041 Hamburg</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Phone className="h-4 w-4" />
-                  <span>+49 123 456 789</span>
+                  <span>+49 (174) 7861457</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
@@ -153,7 +153,7 @@ export default function DatenschutzPage() {
             </p>
             <div className="flex items-center space-x-2 text-primary">
               <Mail className="h-4 w-4" />
-              <span>datenschutz@servecta.de</span>
+              <span>info@servecta.de</span>
             </div>
           </div>
         </div>

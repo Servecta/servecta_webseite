@@ -34,11 +34,11 @@ export default function ImpressumPage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">Musterstraße 123, 12345 Musterstadt</span>
+                  <span className="text-muted-foreground">Lengerckestieg 2, 22041 Hamburg</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">+49 123 456 789</span>
+                  <span className="text-muted-foreground">+49 (174) 7861457</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary" />
@@ -56,10 +56,10 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-semibold text-foreground mb-4">Handelsregister</h2>
             <div className="bg-card p-6 rounded-lg border border-border">
               <div className="space-y-2 text-muted-foreground">
-                <p><strong>Registergericht:</strong> Amtsgericht Musterstadt</p>
-                <p><strong>Registernummer:</strong> HRB 12345</p>
+                <p><strong>Registergericht:</strong> Amtsgericht Hamburg</p>
+                <p><strong>Registernummer:</strong> HRB 123456789</p>
                 <p><strong>Umsatzsteuer-ID:</strong> DE123456789</p>
-                <p><strong>Wirtschafts-ID:</strong> 123456789</p>
+                <p><strong>Wirtschafts-ID:</strong> 123456789123456789</p>
               </div>
             </div>
           </section>
@@ -68,9 +68,9 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-semibold text-foreground mb-4">Geschäftsführung</h2>
             <div className="bg-card p-6 rounded-lg border border-border">
               <div className="space-y-2 text-muted-foreground">
-                <p><strong>Dr. Max Mustermann</strong></p>
+                <p><strong>Luca Stephan Kohls</strong></p>
                 <p>Geschäftsführer</p>
-                <p>E-Mail: max.mustermann@servecta.de</p>
+                <p>E-Mail: luca.kohls@servecta.de</p>
               </div>
             </div>
           </section>
@@ -79,10 +79,10 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-semibold text-foreground mb-4">Verantwortlich für den Inhalt</h2>
             <div className="bg-card p-6 rounded-lg border border-border">
               <div className="space-y-2 text-muted-foreground">
-                <p><strong>Dr. Max Mustermann</strong></p>
-                <p>Musterstraße 123</p>
-                <p>12345 Musterstadt</p>
-                <p>E-Mail: max.mustermann@servecta.de</p>
+                <p><strong>Luca Stephan Kohls</strong></p>
+                <p>Lengerckestieg 2</p>
+                <p>22041 Hamburg</p>
+                <p>E-Mail: luca.kohls@servecta.de</p>
               </div>
             </div>
           </section>
