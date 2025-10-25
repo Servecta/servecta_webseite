@@ -15,7 +15,7 @@ const smtpConfig = {
 
 // E-Mail über SMTP senden (Fallback)
 async function sendEmailViaSMTP(to: string, subject: string, html: string, from: string) {
-  const transporter = nodemailer.createTransporter(smtpConfig);
+  const transporter = nodemailer.createTransport(smtpConfig);
   
   return await transporter.sendMail({
     from,
