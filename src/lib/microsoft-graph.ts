@@ -100,19 +100,21 @@ export async function sendEmailViaGraph(
     console.log(`📊 Response:`, response);
     
   } catch (error) {
+    const sender = fromEmail || process.env.MICROSOFT_FROM_EMAIL || 'noreply@servecta.de';
+    
     console.error(`❌ Fehler beim Senden der E-Mail über Microsoft Graph:`);
-    console.error(`   Von: ${fromEmail || process.env.MICROSOFT_FROM_EMAIL || 'noreply@servecta.de'}`);
+    console.error(`   Von: ${sender}`);
     console.error(`   An: ${to}`);
     console.error(`   Fehler:`, error);
     
     // Detaillierte Fehleranalyse
     if (error instanceof Error) {
       if (error.message.includes('Forbidden')) {
-        throw new Error(`E-Mail-Versand verweigert: Die App hat keine Berechtigung, E-Mails von ${senderEmail} zu senden. Bitte überprüfen Sie die Microsoft Graph Berechtigungen.`);
+        throw new Error(`E-Mail-Versand verweigert: Die App hat keine Berechtigung, E-Mails von ${sender} zu senden. Bitte überprüfen Sie die Microsoft Graph Berechtigungen.`);
       } else if (error.message.includes('BadRequest')) {
         throw new Error(`Ungültige E-Mail-Anfrage: Bitte überprüfen Sie die E-Mail-Adressen und das Format.`);
       } else if (error.message.includes('NotFound')) {
-        throw new Error(`Sender-E-Mail nicht gefunden: ${senderEmail} existiert nicht oder ist nicht für E-Mail-Versand konfiguriert.`);
+        throw new Error(`Sender-E-Mail nicht gefunden: ${sender} existiert nicht oder ist nicht für E-Mail-Versand konfiguriert.`);
       } else if (error.message.includes('Unauthorized')) {
         throw new Error(`Authentifizierung fehlgeschlagen: Microsoft Graph Token ungültig oder abgelaufen.`);
       }
