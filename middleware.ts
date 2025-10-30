@@ -8,11 +8,55 @@ function isMaintenanceEnabled() {
 }
 
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // API Key Schutz für alle API-Routen
+  if (pathname.startsWith('/api/')) {
+    // Preflight immer durchlassen
+    if (request.method === 'OPTIONS') {
+      return NextResponse.next();
+    }
+
+    // Allowlist: Maintenance-Auth-Endpoints ohne API Key zulassen
+    if (
+      pathname.startsWith('/api/maintenance-login') ||
+      pathname.startsWith('/api/maintenance-logout')
+    ) {
+      // durchlassen, wird separat in Maintenance-Flow geschützt
+    } else {
+      const configuredKey = (process.env.API_KEY ?? '').toString().trim();
+      if (configuredKey) {
+        const headerKey = request.headers.get('x-api-key')?.trim();
+        const authHeader = request.headers.get('authorization')?.trim();
+
+        let providedKey: string | undefined;
+        if (headerKey) {
+          providedKey = headerKey;
+        } else if (authHeader) {
+          const lowered = authHeader.toLowerCase();
+          if (lowered.startsWith('bearer ')) {
+            providedKey = authHeader.slice(7).trim();
+          } else if (lowered.startsWith('api-key ')) {
+            providedKey = authHeader.slice(8).trim();
+          }
+        }
+
+        if (!providedKey || providedKey !== configuredKey) {
+          return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+            status: 401,
+            headers: { 'content-type': 'application/json' },
+          });
+        }
+      }
+      // Wenn kein API_KEY konfiguriert ist, nicht erzwingen (z.B. lokale Entwicklung)
+    }
+  }
+
   if (!isMaintenanceEnabled()) {
     return NextResponse.next();
   }
 
-  const { pathname } = request.nextUrl;
+  // ab hier: Maintenance-Mode-Regeln
 
   // Allow static assets and Next internals
   if (
