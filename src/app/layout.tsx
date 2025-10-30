@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { ConditionalNavigation } from "@/components/conditional-navigation";
+import { ConditionalFooter } from "@/components/conditional-footer";
 import ServiceWorkerRegistration from "@/components/service-worker-registration";
 import AnalyticsTracker from "@/components/analytics-tracker";
 
@@ -97,11 +97,11 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <AnalyticsTracker />
         <ServiceWorkerRegistration />
-        <Navigation />
+        <ConditionalNavigation />
         <main className="pt-16">
           {children}
         </main>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   );

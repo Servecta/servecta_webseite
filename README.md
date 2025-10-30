@@ -252,3 +252,21 @@ src/
 ---
 
 **Entwickelt mit ❤️ für moderne, sichere IT-Dienstleistungen**
+
+## 🔐 Wartungsmodus (Passwortschutz)
+
+Aktiviere einen globalen Passwortschutz für die gesamte Seite, z. B. während Wartungsarbeiten.
+
+### Nutzung
+1. `.env` setzen (siehe `env.example`):
+   ```bash
+   MAINTENANCE_MODE=true
+   MAINTENANCE_PASSWORD=ein_sicheres_passwort
+   ```
+2. Server neu starten/deployen.
+3. Beim Aufruf wird auf `/maintenance` weitergeleitet. Nach Eingabe des Passworts wird ein HttpOnly-Cookie gesetzt und der Zugriff freigeschaltet.
+
+### Hinweise
+- Statische Assets und Next-Interna bleiben zugänglich.
+- Login/Logout Endpoints: `POST /api/maintenance-login`, `POST /api/maintenance-logout`.
+- Cookie: `maintenance_auth` (HttpOnly, Secure, SameSite=Lax, 12h Gültigkeit).
