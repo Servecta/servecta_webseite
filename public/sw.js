@@ -21,6 +21,11 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Navigations nicht abfangen, damit der Browser Redirects korrekt handhabt
+  if (event.request.mode === 'navigate') {
+    return; // keine respondWith -> Browser default handling
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
