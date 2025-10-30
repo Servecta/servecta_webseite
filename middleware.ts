@@ -20,7 +20,10 @@ export function middleware(request: NextRequest) {
     // Allowlist: Maintenance-Auth-Endpoints ohne API Key zulassen
     if (
       pathname.startsWith('/api/maintenance-login') ||
-      pathname.startsWith('/api/maintenance-logout')
+      pathname.startsWith('/api/maintenance-logout') ||
+      // Öffentliche API-Endpunkte ohne API Key zulassen (Client-Formulare)
+      pathname.startsWith('/api/contact') ||
+      pathname.startsWith('/api/newsletter')
     ) {
       // durchlassen, wird separat in Maintenance-Flow geschützt
     } else {
